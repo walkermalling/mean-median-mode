@@ -4,8 +4,10 @@ JsonV
 Make sure the JSON data you're consuming *or* producing conforms to a given Schema, and *monitor* transactions for bad data.
 
 
-## tl;dr 
+## tl;dr...
+
 [setup instructions](#setup)
+
 Ask Wilson at <a href="mailto:weisong.wang@nbcuni.com">weisong.wang@nbcuni.com</a>
 
 
@@ -35,7 +37,7 @@ Ask Wilson at <a href="mailto:weisong.wang@nbcuni.com">weisong.wang@nbcuni.com</
 4. Start *JsonV* service `jsonv -conf path/to/myConfigurationFile.json`
 
 
-## <a name="exmapleConfig"></a>Example Config Files
+## <a name="exampleConfig"></a>Example Config Files
 
 #### Basic
 
