@@ -1,7 +1,7 @@
 JsonV
 ==========
 
-Make sure the JSON data you're consuming *or* producing conforms to a given Schema, and *monitor* transactions for bad data.
+Automatically validate the JSON data you're consuming *or* producing against given Schema(s), and *monitor* transactions for invalid data.
 
 
 ## tl;dr...
@@ -15,10 +15,7 @@ Ask Wilson at <a href="mailto:weisong.wang@nbcuni.com">weisong.wang@nbcuni.com</
 
 *JsonV* to validates JSON documents against a JSON Schema in a provided github repo. Just POST your JSON documents to the endpoint provided by *JsonV* and receive validation results.
 
-## Features
-
-- Automatically sync with JSON schema on github
-- -
+As you update your JSON Schema on github, *JsonV* will automatically sync via webhooks.
 
 
 ## Optional Features
@@ -31,11 +28,17 @@ Ask Wilson at <a href="mailto:weisong.wang@nbcuni.com">weisong.wang@nbcuni.com</
 
 *Prerequisite: install go [here](https://golang.org/doc/install)*
 
-1. Clone the repo, or `go get github.com/nbcnews/jsonv`
+1. Clone the repo, or: `go get github.com/nbcnews/jsonv`
 2. Compile: `go install`
 3. Create your configuration file ([example config files](#exampleConfig))
 4. Start *JsonV* service `jsonv -conf path/to/myConfigurationFile.json`
 
+
+## Use
+
+POST your JSON documument to *Jsonv* endpoint for validation results.
+
+To validate against multiple Schemas, place those schemas in the identified github repository, and conform to the convention of naming the Schema with a "type" key in the schema.
 
 ## <a name="exampleConfig"></a>Example Config Files
 
@@ -46,7 +49,7 @@ Ask Wilson at <a href="mailto:weisong.wang@nbcuni.com">weisong.wang@nbcuni.com</
           "host":     "localhost:9876",  // or your webhost
           "user":     "jsonvUser",
           "password": "secret",
-          "workers":  8                  // scale the service with multiple workers
+          "workers":  8                  // use multiple instances
         },
         "github": {
           "owner":  "accountName",
